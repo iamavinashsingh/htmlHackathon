@@ -4,38 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn how the internet works - from basic networking concepts to IP addresses, DNS, and data packets">
-    <title>Lecture 1: How The Internet Works | Defense FullStack Web Development</title>
+    <title>Notes-Lecture 1</title>
 </head>
 <body>
     <!-- Header with navigation -->
     <header>
         <table width="100%">
             <tr>
-                <td width="20%">
+                <td width="5%">
                     <a href="index.html">
                         <img src="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg" height="40" width="40" alt="Coder Army Logo">
                     </a>
                 </td>
-                <td width="60%">
+                <td width="95%">
                     <h1>🌐 HOW DOES THE INTERNET WORK?</h1>
-                </td>
-                <td width="20%" align="right">
-                    <nav>
-                        <a href="index.html">Home</a> | 
-                        <a href="#content">Content</a> |
-                        <a href="#about">About</a>
-                    </nav>
                 </td>
             </tr>
         </table>
-        <hr>
+        <!-- Navigation -->
+        <table width="100%" border="1" cellpadding="5" rules="all" >
+            <tr align="center">
+                <td width="14%"><a href="index.html">Home</a></td>
+                <td width="14%"><a href="lecture1.html"><b>Internet</b></a></td>
+                <td width="14%"><a href="lecture2.html">HTML Basics</a></td>
+                <td width="14%"><a href="lecture3.html">File Paths & Structure</a></td>
+                <td width="14%"><a href="lecture4.html">Forms</a></td>
+                <td width="14%"><a href="lecture5.html">Semantic HTML</a></td>
+                <td width="14%"><a href="lecture6.html">Accessibility</a></td>
+            </tr>
+        </table>
     </header>
 
-    <!-- Navigation and intro -->
+    <br>
+    <br>
     <section>
-        <table width="100%" cellpadding="5">
+        
+    <!-- Intro     -->
+        <table width="100%">
             <tr>
-                <td width="70%" valign="top">
+                <td width="60%" valign="top">
                     <h2>Topics Covered:</h2>
                     <ul>
                         <li><a href="#basicLAN">Principle 1: The Need to Share Information</a></li>
@@ -46,23 +53,10 @@
                         <li><a href="#ipAddress">IP Addresses</a></li>
                         <li><a href="#dns">DNS (Domain Name System)</a></li>
                     </ul>
-                </td>
-                <td width="30%" valign="top">
-                    <h3>Lecture Navigation</h3>
-                    <p>
-                        <a href="index.html">Home</a> |
-                        <a href="lecture2.html">Next Lecture →</a>
-                    </p>
-                    <p>Other HTML Lectures:</p>
-                    <p>
-                        <a href="lecture1.html">1</a> |
-                        <a href="lecture2.html">2</a> |
-                        <a href="lecture3.html">3</a> |
-                        <a href="lecture4.html">4</a> |
-                        <a href="lecture5.html">5</a> |
-                        <a href="lecture6.html">6</a>
-                    </p>
-                </td>
+                </td> 
+                <td width="40%" valign="top" align="center">
+                    <iframe width="500" height="250" src="https://www.youtube.com/embed/1pcikNlDB-4?si=krfhg3uFiUXpLAXF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </td>               
             </tr>
         </table>
         <hr>
@@ -234,7 +228,7 @@
             
             <table width="100%" >
                 <tr>
-                    <td valign="top">
+                    <td width="60%" valign="top">
                         <ul>
                             <li>If the entire file is sent at once → connection gets blocked, no one else can send anything</li>
                             <li>If a small bit gets corrupted → the entire file must be resent 😓</li>
@@ -272,6 +266,9 @@
                             <li>TCP → handles reliability (packet order, retransmission of missing packets)</li>
                             <li>IP → handles addressing and routing</li>
                         </ul>
+                    </td>
+                    <td>
+                        <img src="https://worldhtml.netlify.app/H9.png" alt="Data Packets" width="600" height="500">
                     </td>
                 </tr>
             </table>
@@ -476,7 +473,6 @@
                     </td>
                 </tr>
             </table>
-            <hr>
         </section>
 
         <!-- Navigation at bottom -->
@@ -504,7 +500,7 @@
     </main>
     <hr>
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <table width="100%">
             <tr>
                 <td width="40%" valign="top">

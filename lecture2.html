@@ -3,23 +3,551 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes-Lecture 2</title>
+    <meta name="description" content="Learn the basic structure of HTML documents, including headings, paragraphs, lists, links, and images">
+    <title>Lecture 2: Basic Structure of HTML Document | Defense FullStack Web Development</title>
 </head>
 <body>
+    <!-- Header with navigation -->
     <header>
-
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td width="5%">
+                    <a href="index.html">
+                        <img src="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg" height="40" width="40" alt="Coder Army Logo">
+                    </a>
+                </td>
+                <td width="65%">
+                    <h1>📄 BASIC STRUCTURE OF HTML DOCUMENT</h1>
+                </td>
+                <td width="30%" align="right">
+                    <nav>
+                        <a href="index.html">Home</a> | 
+                        <a href="#content">Content</a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Navigation -->
+        <table width="100%" border="1" cellpadding="5" rules="all" >
+            <tr align="center">
+                <td width="14%"><a href="index.html">Home</a></td>
+                <td width="14%"><a href="lecture1.html">Internet</a></td>
+                <td width="14%"><a href="lecture2.html"><b>HTML Basics</b></a></td>
+                <td width="14%"><a href="lecture3.html">File Paths & Structure</a></td>
+                <td width="14%"><a href="lecture4.html">Forms</a></td>
+                <td width="14%"><a href="lecture5.html">Semantic HTML</a></td>
+                <td width="14%"><a href="lecture6.html">Accessibility</a></td>
+            </tr>
+        </table>
+        <hr>
     </header>
-    <hr>
-    <main>
 
+    <!-- Intro section with topics and video -->
+    <section>
+        <table width="100%" cellpadding="10">
+            <tr>
+                <td width="60%" valign="top">
+                    <h2>Topics Covered:</h2>
+                    <ul>
+                        <li><a href="#html">What is HTML?</a></li>
+                        <li><a href="#headings">HTML Headings</a></li>
+                        <li><a href="#pTag">The Paragraph Tag</a></li>
+                        <li><a href="#hr">Horizontal Rule</a></li>
+                        <li><a href="#br">Line Break</a></li>
+                        <li><a href="#list">List Elements</a></li>
+                        <li><a href="#anchor">The Anchor Tag</a></li>
+                        <li><a href="#imgTag">The Image Tag</a></li>
+                    </ul>
+                </td> 
+                <td width="40%" valign="top" align="center">
+                    <h3>Video Explanation</h3>
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/GkZN_-HMCJ8?si=l_43RQQv9Gr7w6v0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><i>Watch this video for a visual explanation</i></p>
+                </td>               
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <!-- Main content -->
+    <main id="content">
+        <!-- What is HTML section -->
+        <section id="html">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>🌐 What is HTML?</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <ul>
+                <li><b>HTML = HyperText Markup Language</b></li>
+                <li><b>HyperText →</b> web pages ko ek dusre se links ke through connect karta hai.</li>
+                <li><b>Markup Language →</b> text ke andar tags use karke usko structure aur meaning deta hai.</li>
+                <li>Example: &lt;h1&gt;Heading&lt;/h1&gt; → browser ko batata hai ki ye ek heading hai.</li>
+            </ul>
+            
+            <table width="100%" cellpadding="10" >
+                <tr>
+                    <td>
+                        <p><b>Fun Fact:</b> Pehli website abhi bhi live hai → <a href="https://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">info.cern.ch</a></p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>🛠️ Setup for HTML Development</h3>
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>1. Install Visual Studio Code</h4>
+                        <ul>
+                            <li>VS Code ek lightweight, free code editor hai (Microsoft ka).</li>
+                            <li><a href="https://code.visualstudio.com/" target="_blank">Download Here</a></li>
+                        </ul>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>2. Install VS Code Extensions (must-have)</h4>
+                        <ul>
+                            <li><b>Live Preview →</b> aapke HTML page ko instantly browser me dikhata hai.</li>
+                            <li><b>Prettier →</b> code ko automatically clean aur formatted banata hai.</li>
+                            <li><b>Live Server →</b> aapke project ko local server par run karta hai, aur file save karte hi browser refresh ho jaata hai 🚀.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Headings section -->
+        <section id="headings">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>🏷️ HTML Headings</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p><b>Purpose → </b> Headings se aap apne webpage ka structure aur outline banate ho (jaise book ke chapters aur sub-chapters).</p>
+            <p><b>Range →</b> &lt;h1&gt; sabse bada aur important hota hai → &lt;h6&gt; sabse chhota aur least important.</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr >
+                    <th width="20%">Tag</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&lt;h1&gt;</b></td>
+                    <td valign="top">Main Title (ek page me usually sirf 1 hi hona chahiye)</td>
+                    <td valign="top">Website ka naam ya blog ka main title</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&lt;h2&gt;</b></td>
+                    <td valign="top">Section Headings (big sections ke liye)</td>
+                    <td valign="top">"Introduction", "Features"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&lt;h3&gt;</b></td>
+                    <td valign="top">Sub-sections under &lt;h2&gt;</td>
+                    <td valign="top">Feature ke andar "Advantage 1"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&lt;h4&gt;</b></td>
+                    <td valign="top">Aur chhoti detailing</td>
+                    <td valign="top">Sub-points under advantages</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&lt;h5&gt; & &lt;h6&gt;</b></td>
+                    <td valign="top">Bahut hi minor headings (rarely used)</td>
+                    <td valign="top">Fine details or legal text headings</td>
+                </tr>
+            </table>
+            
+            <h3>Example of All Heading Levels</h3>
+            <table width="100%" cellpadding="10" >
+                <tr>
+                    <td>
+                        <h1>Heading 1 - Most Important</h1>
+                        <h2>Heading 2 - Section Header</h2>
+                        <h3>Heading 3 - Sub-section</h3>
+                        <h4>Heading 4 - Minor Heading</h4>
+                        <h5>Heading 5 - Rarely Used</h5>
+                        <h6>Heading 6 - Least Important</h6>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Paragraph section -->
+        <section id="pTag">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>📄 The Paragraph Tag</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="60%" valign="top">
+                        <ul>
+                            <li><b>Purpose →</b> Webpage me text ko proper paragraphs me divide karne ke liye use hota hai.</li>
+                            <li><b>Syntax →</b> &lt;p&gt;...your text here...&lt;/p&gt;</li>
+                            <li><b>Default Behavior →</b> Browser automatically ek line break aur thoda space paragraph ke upar aur niche add karta hai.</li>
+                        </ul>
+                    </td>
+                    <td width="40%" valign="top" >
+                        <h4>Best Practice</h4>
+                        <ul>
+                            <li>Text ke alag-alag blocks ko separate karne ke liye multiple &lt;p&gt; tags use karo.</li>
+                            <li>Kabhi bhi extra line breaks (&lt;br&gt;) daal ke paragraph banane ki galti mat karna.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Example</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <p>&lt;p&gt;This is the first paragraph. It contains multiple sentences to demonstrate how paragraph tags work in HTML.&lt;/p&gt;</p>
+                        <p>&lt;p&gt;This is the second paragraph. Notice how browsers automatically add space between paragraphs.&lt;/p&gt;</p>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <p>This is the first paragraph. It contains multiple sentences to demonstrate how paragraph tags work in HTML.</p>
+                        <p>This is the second paragraph. Notice how browsers automatically add space between paragraphs.</p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Horizontal Rule section -->
+        <section id="hr">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>➖ Horizontal Rule</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="60%" valign="top">
+                        <ul>
+                            <li><b>Purpose →</b> Webpage me sections ko visually separate karne ke liye horizontal line add karta hai.</li>
+                            <li><b>Syntax →</b> &lt;hr&gt;</li>
+                            <li><b>Self-closing Tag →</b> Isme closing tag nahi hota (jaise &lt;br&gt;).</li>
+                            <li><b>Default Behavior →</b> Browser ek horizontal line draw karta hai jo poore width me hoti hai.</li>
+                        </ul>
+                    </td>
+                    <td width="40%" valign="top">
+                        <h4>Best Practice</h4>
+                        <p>Jab aapko content ke beech me clear visual break chahiye tab use karo.</p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Example 👇</h3>  
+            <hr>
+        </section>
+
+        <!-- Line Break section -->
+        <section id="br">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>↩️ Line Break</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="60%" valign="top">
+                        <ul>
+                            <li><b>Purpose →</b> Text me line break insert karta hai bina naya paragraph banaye.</li>
+                            <li><b>Syntax →</b> &lt;br&gt;</li>
+                            <li><b>Self-closing Tag →</b> Isme closing tag nahi hota (jaise &lt;hr&gt;).</li>
+                            <li><b>Default Behavior →</b> Browser text ko next line par le jaata hai.</li>
+                        </ul>
+                    </td>
+                    <td width="40%" valign="top" >
+                        <h4>Best Practice</h4>
+                        <p>Jab aapko ek hi paragraph me line break chahiye tab use karo. Multiple line breaks ke liye multiple &lt;br&gt; tags use karo.</p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Example</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <p>&lt;p&gt;Hello&lt;br&gt;Kaise ho&lt;br&gt;&lt;br&gt;Main achha hun&lt;/p&gt;</p>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <p>Hello<br>Kaise ho<br><br>Main achha hun</p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- List Elements section -->
+        <section id="list">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>📋 List Elements</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="33%" valign="top">
+                        <h3>&lt;ul&gt; → Unordered List</h3>
+                        <ul>
+                            <li>Ye bulleted list banata hai (●, ○, - type symbols).</li>
+                            <li>Jab order important nahi hota (jaise shopping list).</li>
+                        </ul>
+                    </td>
+                    <td width="33%" valign="top">
+                        <h3>&lt;ol&gt; → Ordered List</h3>
+                        <ul>
+                            <li>Ye numbered list banata hai (1, 2, 3 …).</li>
+                            <li>Jab order important ho (jaise recipe steps, ranking).</li>
+                        </ul>
+                    </td>
+                    <td width="33%" valign="top">
+                        <h3>&lt;li&gt; → List Item</h3>
+                        <ul>
+                            <li>Ye individual item ko define karta hai dono &lt;ul&gt; aur &lt;ol&gt; ke andar.</li>
+                            <li>Har item ko alag &lt;li&gt; tag me likhna hota hai.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Examples</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>Ordered List - Recipe Steps</h4>
+                        <ol>
+                            <li>First, boil the water in a kettle.</li>
+                            <li>Add tea bag, sugar and milk into it.</li>
+                            <li>Keep boiling it for 5 minutes.</li>
+                            <li>Serve the tea by pouring it into cup.</li>
+                        </ol>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Unordered List - Shopping List</h4>
+                        <ul>
+                            <li>Milk</li>
+                            <li>Tea Bags</li>
+                            <li>Sugar</li>
+                            <li>Water</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Anchor Tag section -->
+        <section id="anchor">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>🔗 The Anchor Tag</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <ul>
+                <li><b>Purpose →</b> Webpage me hyperlinks create karta hai jo users ko ek page se dusre page ya website par le jaate hain.</li>
+                <li><b>Syntax →</b> &lt;a href="URL" target="_blank" title="xyz"&gt;Clickable Text&lt;/a&gt;</li>
+            </ul>
+            
+            <h3>Attributes</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr >
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example Values</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>href</b></td>
+                    <td valign="top">jahan link point karega uska URL specify karta hai</td>
+                    <td valign="top">"page.html", "https://example.com"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>target</b></td>
+                    <td valign="top">link ko kaise open karna hai specify karta hai</td>
+                    <td valign="top">_blank (new tab), _self (same tab)</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>title</b></td>
+                    <td valign="top">link ke baare me extra info provide karta hai jo hover karne par dikhai deti hai</td>
+                    <td valign="top">"Visit our homepage"</td>
+                </tr>
+            </table>
+            
+            <h3>Best Practices</h3>
+            <table width="100%" cellpadding="10" >
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Descriptive link text use karo jo bataye ki link kya karta hai. Example: "Click here" ki jagah "Read more about HTML".</li>
+                            <li>Agar link external site par ja raha hai to target="_blank" use karo taaki user ka current page open rahe.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Examples</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <p>&lt;a href="https://www.google.com" target="_blank" title="Visit Google"&gt;Go to Google&lt;/a&gt;</p>
+                        <p>&lt;a href="about.html"&gt;About Us&lt;/a&gt;</p>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <p><a href="https://www.google.com" target="_blank" title="Visit Google">Go to Google</a></p>
+                        <p><a href="about.html">About Us</a></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Image Tag section -->
+        <section id="imgTag">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td >
+                        <h2>🖼️ The Image Tag</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <ul>
+                <li><b>Purpose →</b> Webpage me images embed karne ke liye use hota hai.</li>
+                <li><b>Syntax →</b> &lt;img src="imageURL" alt="description" width="value" height="value"&gt;</li>
+            </ul>
+            
+            <h3>Attributes</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr >
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>src</b></td>
+                    <td valign="top">image ka URL ya file path specify karta hai</td>
+                    <td valign="top">"image.jpg", "https://example.com/image.png"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>alt</b></td>
+                    <td valign="top">image ka description provide karta hai</td>
+                    <td valign="top">"Photo of MS Dhoni"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>width & height</b></td>
+                    <td valign="top">image ke dimensions specify karte hain pixels me</td>
+                    <td valign="top">width="400", height="300"</td>
+                </tr>
+            </table>
+            
+            <h3>Best Practices</h3>
+            <table width="100%" cellpadding="10" >
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Har image ke liye meaningful alt text provide karo taaki accessibility improve ho.</li>
+                            <li>Image size optimize karo taaki webpage fast load ho (large images se page slow ho sakta hai).</li>
+                            <li>Agar specific size chahiye to width aur height attributes use karo, warna browser original image size use karega.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Example</h3>
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/MS_Dhoni_%28Prabhav_%2723_-_RiGI_2023%29.jpg" alt="MS Dhoni" width="400" height="400"&gt;</p>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/MS_Dhoni_%28Prabhav_%2723_-_RiGI_2023%29.jpg" alt="MS Dhoni" width="200" height="200">
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Navigation at bottom -->
+        <section>
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td align="center">
+                        <p>
+                            ← <a href="lecture1.html">Previous Lecture</a> |
+                            <a href="index.html">HomePage</a> | 
+                            <a href="lecture3.html">Next Lecture</a> →
+                        </p>
+                        <p>HTML Lectures:
+                            <a href="lecture1.html">1</a> |
+                            <a href="lecture2.html">2</a> |
+                            <a href="lecture3.html">3</a> |
+                            <a href="lecture4.html">4</a> |
+                            <a href="lecture5.html">5</a> |
+                            <a href="lecture6.html">6</a>
+                        </p>
+                        <p><a href="#top">Back to top ↑</a></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </main>
-    <hr>
+
+    <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2025 .  Notes compiled for the <b>Defense FullStack</b> webdev course.</p>
-        <p><b>Avinash Singh</b></p>
-        <p>My Twitter/X :- <a href="https://x.com/AvinasTweets" target="_blank">Avinash Singh</a></p>
-        <p><a href="mailto:imavinashsingh2@gmail.com" target="_blank">Mail  Me</a> <br></p>        
-        <p><a href="#top">Back to top ↑</a></p>
+        <table width="100%" cellpadding="10" >
+            <tr>
+                <td width="40%" valign="top">
+                    <h3>About the Course</h3>
+                    <p>Defense FullStack Web Development Notes</p>
+                    <p>Copyright &copy; 2025</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Author</h3>
+                    <p><b>Avinash Singh</b></p>
+                    <p>Web Developer & Instructor</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Connect</h3>
+                    <p>Twitter/X: <a href="https://x.com/AvinasTweets" target="_blank">@AvinasTweets</a></p>
+                    <p>Email: <a href="mailto:imavinashsingh2@gmail.com">imavinashsingh2@gmail.com</a></p>
+                </td>
+            </tr>
+        </table>
     </footer>
 </body>
 </html>
