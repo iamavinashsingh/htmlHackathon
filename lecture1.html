@@ -3,296 +3,527 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture 1- Internet</title>
+    <meta name="description" content="Learn how the internet works - from basic networking concepts to IP addresses, DNS, and data packets">
+    <title>Lecture 1: How The Internet Works | Defense FullStack Web Development</title>
 </head>
 <body>
+    <!-- Header with navigation -->
     <header>
-        <h1>🌐 HOW DOES INTERNET WORK ?</h1>
+        <table width="100%">
+            <tr>
+                <td width="20%">
+                    <a href="index.html">
+                        <img src="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg" height="40" width="40" alt="Coder Army Logo">
+                    </a>
+                </td>
+                <td width="60%">
+                    <h1>🌐 HOW DOES THE INTERNET WORK?</h1>
+                </td>
+                <td width="20%" align="right">
+                    <nav>
+                        <a href="index.html">Home</a> | 
+                        <a href="#content">Content</a> |
+                        <a href="#about">About</a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        <hr>
     </header>
-    <hr>
-    <p> <a href="index.html">HomePage</a> | <a href="lecture2.html">Next Page</a> | <a href="lecture3.html">3</a> | <a href="lecture3.html">4</a> |<a href="lecture5.html">5</a> | <a href="lecture6.html">6</a> </p>
-    <hr>
-    <p>Topics :- </p>
-    <ul>
-        <li><a href="#basicLAN">Principle 1: The Need to Share Information</a></li>
-        <li><a href="#LAN">Principle 2: The Problem of Scale</a></li>
-        <li><a href="#internet">Principle 3: The Problem of Connecting Networks</a></li>
-        <li><a href="#addressing">Principle 4: The Problem of Finding Anyone (Addressing)</a></li>
-        <li><a href="#dataPackets">Principle 5: The Problem of Reliability and Fairness</a></li>
-        <li><a href="#ipAddress">IP Address</a></li>
-        <li><a href="#dns">DNS (Domain Name System)</a></li>
-    </ul>
-    <hr>
-    <main>
-        <!--    ***************                      BASIC LAN                 ******************** -->
 
-        <h2 id="basicLAN">Principle 1: The Need to Share Information</h2>
-        <h3><i>Problem : </i> Ek computer (A) ke paas data hai, aur dusre computer (B) ko chahiye. Lekin dono ek hi room me nahi hai.</h3>
-        <ul> 
-            <li><b>Primitive solution : </b>&nbsp; Pen drive / USB le jao manually → slow hai, har time possible nahi hai.</li>
-            <li> <b>Better solution : </b>&nbsp; Seedha ek cable lagao (ethernet ya fiber optic) → ab dono directly connect ho gaye.
-                <ul><li><b>How does it work :-</b>
+    <!-- Navigation and intro -->
+    <section>
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td width="70%" valign="top">
+                    <h2>Topics Covered:</h2>
                     <ul>
-                        <li>Wire me signals bhejte hai → jaise bijli ki tarah.</li>
-                        <li>High voltage = "1"</li>
-                        <li>Low voltage = "0"</li>
+                        <li><a href="#basicLAN">Principle 1: The Need to Share Information</a></li>
+                        <li><a href="#LAN">Principle 2: The Problem of Scale</a></li>
+                        <li><a href="#internet">Principle 3: Connecting Networks</a></li>
+                        <li><a href="#addressing">Principle 4: Finding Anyone (Addressing)</a></li>
+                        <li><a href="#dataPackets">Principle 5: Reliability and Fairness</a></li>
+                        <li><a href="#ipAddress">IP Addresses</a></li>
+                        <li><a href="#dns">DNS (Domain Name System)</a></li>
                     </ul>
-                    </li>
-                    <li> <b>Result: Ab hum bits (1 aur 0) bhej sakte hai → Matlab basic network ban gaya.</b></li>
-                </ul>
-            </li>
-        </ul>
-        <img src="./assets/basic_lan.png"  width="600" height="400" alt="Basic connection between 2 computers">
-
-        <!--    ***************                      LAN                 ******************** -->
-        <h2 id="LAN">Principle 2: The Problem of Scale</h2>
-        <h3><i>Problem : </i> Ab humare paas 2 nahi, 1000 computers hai. Toh kya kare?</h3>
-        <ul>
-            <li><b>Primitive solution : </b>&nbsp; Har computer ko baaki sabse direct connect kar do. → Bahut zyada cables lagegi, manage karna mushkil hoga.</li>
-            <li> <b>2 Computers : </b>&nbsp; A aur B ko connect karna simple hai → ek wire kaafi.</li>
-            <li> <b>3 Computers (A, B, C): </b>&nbsp; Har ek ko har ek se connect karna hoga → 3 cables.</li>
-            <li> <b>4 Computers: </b>&nbsp; Total 6 cables lagengi.</li>
-            <li> <b>100 Computers: </b>&nbsp; Aapko 4,950 cables chahiye 😱 → practically impossible!</li>                
-        </ul>
-        <h3><i>Solution : </i>Central Device (Switch)</h3>
-        <ul>
-            <li>Har computer directly ek central switch se connect hoga.</li>
-            <li>Agar A ko C se baat karni hai → A apna message switch ko dega → switch usko sirf C ko forward karega.</li>
-            <li>Ab aapko sirf N cables for N computers chahiye (100 computers = 100 cables, not 4,950).</li>
-        </ul>
-        <h3>Result: Local Area Network (LAN)</h3>
-        <img src="https://shorturl.at/5pdRs" alt="Switch's working" width="600" height="400">
-
-        <!--    ***************                      Internet                 ******************** -->
-        <h2 id="internet">Principle 3: The Problem of Connecting Networks</h2>
-        <h3><i>Problem : </i> Ab humare paas ek LAN nahi, bahut saare LANs hai. Toh kya kare?</h3>
-        <ul>
-            <li><b>Primitive solution : </b>&nbsp; Har computer ko har dusre office ke computer se directly connect karna = impossible (scaling issue again).</li>
-        </ul>
-        <h3><i>Solution : </i>Router</h3>
-        <ul>
-            <li>Ek special device (Router) aata hai.Router dono networks me connected hota hai.</li>
-            <li>Agar A (LAN 1) ko X (LAN 2) se baat karni hai → A apna message apne switch ko dega → switch usko apne router ko forward karega → router usko LAN 2 ke router ko bhejega → LAN 2 ka router usko sirf X ko forward karega.</li>
-            <li>Ab aapko sirf N cables for N LANs chahiye (100 LANs = 100 cables, not 4,950).</li>
-        </ul>
-        <h3>Result: Internet = Network of Networks</h3>
-        <img src="https://worldhtml.netlify.app/H4.png" alt="Router's working" width="600" height="400">
-
-        <!--    ***************                     Addressing                ******************** -->
-
-        <h2 id="addressing">Principle 4: The Problem of Finding Anyone (Addressing)</h2>
-        <h3><i>Problem : </i> Ab humare paas bahut saare computers aur networks hai. Toh kaise pata kare ki message kahan bhejna hai?</h3>
-        <ul>
-            <li><b>Primitive solution : </b>&nbsp; Har computer ko ek unique address do → jaise ghar ka address hota hai.</li>
-            <li>Har network ko bhi ek unique address do → jaise city ka address hota hai.</li>
-            <li>Computer ka address = IP Address</li>
-            <li>Jab ek router ko packet milta hai:
-                <ul>
-                    <li>Wo destination IP dekh kar decide karta hai → "mujhe left side network ko nahi bhejna, mujhe right side wale ko bhejna hai."</li>
-                    <li>Routers ko full path nahi pata hota → bas next best hop ka pata hota hai.</li>
-                    <li>Step by step, data apne final destination tak pahunch jata hai.</li>
-                </ul>
-            </li>
-        </ul>
-        <img src="./assets/addressing.png" alt="Addressing" width="600" height="400">
-        <!--    ***************                  Data   Packets               ******************** -->
-        <h2 id="dataPackets">Principle 5: The Problem of Reliability and Fairness</h2> 
-        <h3><i>Problem : </i>Problem with big files (e.g., 1-hour video)</h3> 
-        <ul>
-            <li>Agar pura file ek hi baar bheja → connection block ho jaayega, koi aur kuch bhej hi nahi paayega.</li>
-            <li>Agar ek chhota sa bit corrupt ho gaya → pura file dubara bhejna padega 😓.</li>
-        </ul>
-        <h3><i>Solution: </i>Break file into Packets</h3> 
-        <ul>
-            <li>File ko chhote-chhote envelopes (packets) me tod dete hai.</li>
-            <li><b>Har packet me hota hai:</b>
-                <ol>
-                    <li>Payload (data ka ek chhota hissa)</li>
-                    <li>Destination IP (kahan jaana hai)</li>
-                    <li>Sender IP (kahan se aaya hai)</li>
-                    <li>Sequence number (Packet 1 of 5000, Packet 2 of 5000...)</li>
-                </ol>
-            </li>
-            <li><b>How it works:</b> 
-                <ul>
-                    <li>Har packet alage-alag route se travel kar sakta hai.</li>
-                    <li>Receiver ke paas sab packets aake:
-                        <ol>
-                            <li>Correct order me reassemble hote hai.</li>
-                            <li>Agar koi packet missing hai → woh dubara request karke mangwa leta hai.</li>
-                        </ol>
-                    </li>
-                    <li>Result = ekdum proper file reconstruct ho jaati hai.</li>
-                </ul>
-            </li>
-        </ul>
-        <h3>🌍 Protocol (TCP/IP)</h3>
-        <ul>
-            <li>Ye poore rules (addressing, breaking, sending, reassembling) ko kehte hai Protocol.</li>
-            <li>Internet ka sabse main protocol hai TCP/IP (Transmission Control Protocol / Internet Protocol).</li>
-            <li>TCP → reliability handle karta hai (packets order me, missing packets dubara mangwana, etc.).</li>
-            <li>IP → addressing aur routing handle karta hai.</li>
-        </ul>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Lecture Navigation</h3>
+                    <p>
+                        <a href="index.html">Home</a> |
+                        <a href="lecture2.html">Next Lecture →</a>
+                    </p>
+                    <p>Other HTML Lectures:</p>
+                    <p>
+                        <a href="lecture1.html">1</a> |
+                        <a href="lecture2.html">2</a> |
+                        <a href="lecture3.html">3</a> |
+                        <a href="lecture4.html">4</a> |
+                        <a href="lecture5.html">5</a> |
+                        <a href="lecture6.html">6</a>
+                    </p>
+                </td>
+            </tr>
+        </table>
         <hr>
-        <!-- ********************                   IP Address       ***************************         -->
-        <h2 id="ipAddress">🌐 IP Address</h2>
-        <ul>
-            <li><b>IPv4 (classic format):</b>
-                <ul>
-                    <li>32 bits ka hota hai (4 bytes).</li>
-                    <li>4 octets me divided hota hai (8 bits each).</li>
-                    <li>Decimal me likha jata hai, har octet ke beech me dot (.) hota hai.</li>
-                    <li>Example:172.217.16.142 (Google).</li>
-                    <li>Max 2^32 = 4.3 billion unique addresses possible.</li>
-                    <li>Problem: Ab itne addresses kaafi nahi hai (smartphones, IoT devices, etc.).</li>
-                </ul>
-            </li>
-            <li><b>IPv6</b>
-                <ul>
-                    <li>128 bits ka hota hai (16 bytes).</li>
-                    <li>8 groups me divided hota hai (16 bits each).</li>
-                    <li>Hexadecimal me likha jata hai, har group ke beech me colon (:) hota hai.</li>
-                    <li>Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334</li>
-                    <li>Max 2^128 = 340 undecillion unique addresses possible → practically infinite!</li>
-                </ul>
-            </li>            
-        </ul>
-        <h3>Public IP vs Private IP</h3>
-        <ul>
-            <li><b>Public IP:</b>
-                <ul>
-                    <li>Analogy: Company ka main phone number.</li>
-                    <li>Global, unique → Internet me 2 devices ka same public IP ek saath nahi ho sakta.</li>
-                    <li>Purpose: Global reach (Google server, Netflix server, etc.).</li>
-                    <li>Assignment: ISP (Jio, Airtel, Comcast) deta hai.</li>
-                    <li>Who has one?
-                        <ul>
-                            <li>Routers (jo aapke ghar/office me hote hai).</li>
-                            <li>Servers (jo websites aur online services chalate hai).</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><b>Private IP:</b>
-                <ul>
-                    <li>Analogy: Company ke andar ke internal phone numbers.</li>
-                    <li>Local, non-unique → Different LANs me same private IP ho sakta hai.</li>
-                    <li>Purpose: Local communication within a network (aapke ghar/office ke devices ke beech).</li>
-                    <li>Assignment: Aapka router deta hai (via DHCP).</li>
-                    <li>Reserved Ranges:
-                        <ul>
-                            <li>10.0.0.0 – 10.255.255.255 (large orgs)</li>
-                            <li>172.16.0.0 – 172.31.255.255 (medium networks)</li>
-                            <li>192.168.0.0 – 192.168.255.255 (ghar me sabse common)</li>
-                        </ul>
-                    </li>
-                </ul>              
-            </li>
-        </ul>
-        <h3>How Public and Private IPs Work Together</h3>
-        <ul>
-            <li>Jab aapka device (private IP) internet pe kuch access karta hai → router us request ko apne public IP se forward karta hai.</li>
-            <li>Jab response aata hai → router usko wapas aapke device ke private IP pe bhejta hai.</li>
-            <li>Is process ko NAT (Network Address Translation) kehte hai.</li> 
-        </ul>
-        <h3>🖥️ MAC Address (Media Access Control)</h3>
-        <ul>
-            <li>A unique, permanent 48-bit serial number, burned into every network-capable device (Wi-Fi card, Ethernet port, etc).</li>
-            <li>Purpose: Identifies your device in the local network.</li>
-            <li>Formats
-                <ol>
-                    <li>Colon-separated → 3C:22:FB:A3:B4:C5</li>
-                    <li>Hyphen-separated → 3C-22-FB-A3-B4-C5</li>
-                    <li>Period-separated (Cisco style) → 3c22.fba3.b4c5</li>
-                    <li>No separators → 3C22FBA3B4C5</li>
-                </ol>
-            </li>
-        </ul>
-        <h3>Port Number</h3>
-        <ul>
-            <li>16-bit unsigned number (0–65535) used with IP address to identify specific applications/services.</li>
-            <li>Total ports: 2^16 = 65,536</li>
-            <li><b>Categories of Ports</b>
-                <ol>
-                    <li>Well-Known Ports (0 – 1023)
-                        <ul>
-                            <li>Reserved for core internet services. Need admin rights to bind.</li>
-                            <li>Examples:21 → FTP,22 → SSH, 25 → SMTP, 53 → DNS, 80 → HTTP, 443 → HTTPS</li>
-                        </ul>
-                    </li>
-                    <li>Registered Ports (1024 – 49151)
-                        <ul>
-                            <li>Used by applications/software. No admin rights needed.</li>
-                            <li>Examples:3000 → React / Node.js dev servers, 3306 → MySQL, 5432 → PostgreSQL, 27017 → MongoDB, 8080 → Alternative web server</li>
-                        </ul>
-                    </li>
-                    <li>Dynamic / Private / Ephemeral (49152 – 65535)
-                        <ul>
-                            <li>Auto-assigned by OS for temporary client connections.</li>
-                            <li>Examples: When browser requests google.com:443, your machine uses a random port from this range for its side.</li>
-                        </ul>
-                    </li>
-                </ol>
-            </li>
-        </ul>
-        <h3>Summary</h3>
-        <p>Socho aapki building ka address hai → ye IP Address jaisa hai, jo pure network me aapke ghar (device) ko identify karta hai. Us building ke andar har flat ka apna unique number hota hai → ye MAC Address jaisa hai, jo har device ka permanently fixed hota hai. Ab sochiye, aap apne flat ke andar kisi specific room me baithe ho (bedroom, kitchen, study) → ye Port Number hai, jo batata hai ki us device ke andar kaunsa specific service ya application use ho raha hai. Matlab: IP address → building identify kare, MAC → kaunsa flat hai, aur Port → flat ke andar kaunsa room (service/app). Is analogy se traffic ko sahi ghar, sahi flat, aur sahi room tak pahunchaya jaata hai. 🏢➡️🏠➡️🚪</p>
+    </section>
 
-        <hr>
-        <h2 id="dns">🌍 DNS (Domain Name System)</h2>
-        <ul>
-            <li>DNS ko internet ka phonebook bhi kaha jaata hai.</li>
-            <li>Hum human-friendly domain names (e.g., www.google.com) use karte hai, lekin computers IP addresses (e.g.,142.250.72.206) samajhte hai.</li>
-            <li>DNS domain names ko unke corresponding IP addresses me translate karta hai.</li>
-            <li>Without DNS, hume har website ke IP memorize karne padte (impossible 🥲).</li>
-            <li>DNS make browsing human-friendly → aap sirf naam type karo, DNS uske IP nikal ke deta hai.</li>
-            <li><b>DNS Process</b>
-                <ol>
-                    <li>Check Local Cache
-                        <ul>
-                            <li>Browser → OS → Router cache me dekhta hai.</li>
-                            <li>Agar IP mil gaya → direct connect.</li>
+    <!-- Main content -->
+    <main id="content">
+        <!-- Principle 1 -->
+        <section id="basicLAN">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <h2>Principle 1: The Need to Share Information</h2>
+                        <h3><i>Problem:</i> One computer (A) has data, and another computer (B) needs it, but they're not in the same room.</h3>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%">
+                <tr>
+                    <td width="60%">
+                        <ul> 
+                            <li><b>Primitive solution:</b> Pen drive / USB manually → slow, not always practical</li>
+                            <li><b>Better solution:</b> Direct cable connection (ethernet or fiber optic)
+                                <ul>
+                                    <li><b>How it works:</b>
+                                        <ul>
+                                            <li>Signals sent through wires → like electricity</li>
+                                            <li>High voltage = "1"</li>
+                                            <li>Low voltage = "0"</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>Result:</b> We can send bits (1s and 0s) → Basic network created</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li>Recursive Resolver
-                        <ul>
-                            <li>Agar cache me nahi → query DNS resolver ko jaati hai (ISP / Google 8.8.8.8 / Cloudflare 1.1.1.1).</li>
-                        </ul>
-                    </li>
-                    <li>Hierarchical Search
-                        <ul>
-                            <li>Root Server → batata hai TLD (.com, .org) server ka address.</li>
-                            <li>TLD Server → batata hai domain ke authoritative server ka address.</li>
-                            <li>Authoritative Server → returns actual IP.</li>
-                        </ul>
-                    </li>
-                    <li>Journey Back
-                        <ul>
-                            <li>IP resolver → OS → Browser me wapas jaata hai.</li>
-                            <li>Resolver us IP ko cache kar leta hai (TTL) taaki next time fast ho.</li>
-                        </ul>                        
-                    </li>
-                    <li>Final Connection
-                        <ul>
-                            <li>Browser ab IP address + port (443 for HTTPS) se connect karta hai.</li>
-                            <li>Website open ho jaati hai ✅.</li>
-                        </ul>
-                    </li>
-                </ol>
-            </li>
-        </ul>
-        <hr>
-        <p> <a href="index.html">HomePage</a> | <a href="lecture2.html">Next Page</a> | <a href="lecture3.html">3</a> | <a href="lecture3.html">4</a> |<a href="lecture5.html">5</a> | <a href="lecture6.html">6</a> </p>
+                    </td>
+                    <td width="40%" align="center">
+                        <img src="./assets/basic_lan.png" width="300" height="200" alt="Basic connection between 2 computers">
+                        <p><i>Basic connection between two computers</i></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
 
+        <!-- Principle 2 -->
+        <section id="LAN">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <h2>Principle 2: The Problem of Scale</h2>
+                        <h3><i>Problem:</i> Now we have 1000 computers, not just 2. What to do?</h3>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%">
+                <tr>
+                    <td width="60%" valign="top">
+                        <ul>
+                            <li><b>Primitive solution:</b> Connect every computer to every other computer → Too many cables, difficult to manage</li>
+                            <li><b>2 Computers:</b> A and B → 1 wire</li>
+                            <li><b>3 Computers (A, B, C):</b> Each connected to every other → 3 cables</li>
+                            <li><b>4 Computers:</b> 6 cables needed</li>
+                            <li><b>100 Computers:</b> 4,950 cables needed 😱 → Practically impossible!</li>                
+                        </ul>
+                        
+                        <h3><i>Solution:</i> Central Device (Switch)</h3>
+                        <ul>
+                            <li>Every computer connects directly to a central switch</li>
+                            <li>If A wants to talk to C → A gives message to switch → switch forwards it only to C</li>
+                            <li>Now you need only N cables for N computers (100 computers = 100 cables)</li>
+                        </ul>
+                        
+                        <h3>Result: Local Area Network (LAN)</h3>
+                    </td>
+                    <td width="40%" align="center">
+                        <img src="https://shorturl.at/5pdRs" alt="Switch's working" width="300" height="200">
+                        <p><i>How a network switch works</i></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
 
+        <!-- Principle 3 -->
+        <section id="internet">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <h2>Principle 3: The Problem of Connecting Networks</h2>
+                        <h3><i>Problem:</i> Now we have multiple LANs, not just one. What to do?</h3>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" >
+                <tr>
+                    <td width="60%" valign="top">
+                        <ul>
+                            <li><b>Primitive solution:</b> Connect every computer to every other computer across networks → Impossible (scaling issue again)</li>
+                        </ul>
+                        
+                        <h3><i>Solution:</i> Router</h3>
+                        <ul>
+                            <li>A special device (Router) connects to both networks</li>
+                            <li>If A (LAN 1) wants to talk to X (LAN 2) → A gives message to its switch → switch forwards to its router → router sends to LAN 2's router → LAN 2's router forwards only to X</li>
+                            <li>Now you need only N connections for N LANs</li>
+                        </ul>
+                        
+                        <h3>Result: Internet = Network of Networks</h3>
+                    </td>
+                    <td width="40%" align="center">
+                        <img src="https://worldhtml.netlify.app/H4.png" alt="Router's working" width="300" height="200">
+                        <p><i>How routers connect networks</i></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Principle 4 -->
+        <section id="addressing">
+            <table width="100%" >
+                <tr>
+                    <td >
+                        <h2>Principle 4: The Problem of Finding Anyone (Addressing)</h2>
+                        <h3><i>Problem:</i> With many computers and networks, how do we know where to send messages?</h3>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" >
+                <tr>
+                    <td width="60%" valign="top">
+                        <ul>
+                            <li><b>Solution:</b> Give every computer a unique address → like a home address</li>
+                            <li>Give every network a unique address → like a city address</li>
+                            <li>Computer address = IP Address</li>
+                            <li>When a router receives a packet:
+                                <ul>
+                                    <li>It looks at the destination IP to decide where to send it next</li>
+                                    <li>Routers don't know the full path → just the next best hop</li>
+                                    <li>Step by step, data reaches its final destination</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                    <td width="40%" align="center">
+                        <img src="./assets/addressing.png" alt="Addressing" width="300" height="200">
+                        <p><i>Network addressing concept</i></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Principle 5 -->
+        <section id="dataPackets">
+            <table width="100%" >
+                <tr>
+                    <td >
+                        <h2>Principle 5: The Problem of Reliability and Fairness</h2>
+                        <h3><i>Problem:</i> Issues with large files (e.g., 1-hour video)</h3>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" >
+                <tr>
+                    <td valign="top">
+                        <ul>
+                            <li>If the entire file is sent at once → connection gets blocked, no one else can send anything</li>
+                            <li>If a small bit gets corrupted → the entire file must be resent 😓</li>
+                        </ul>
+                        
+                        <h3><i>Solution:</i> Break file into Packets</h3>
+                        <ul>
+                            <li>File is divided into small envelopes (packets)</li>
+                            <li><b>Each packet contains:</b>
+                                <ol>
+                                    <li>Payload (a small part of the data)</li>
+                                    <li>Destination IP (where it's going)</li>
+                                    <li>Sender IP (where it came from)</li>
+                                    <li>Sequence number (Packet 1 of 5000, Packet 2 of 5000...)</li>
+                                </ol>
+                            </li>
+                            <li><b>How it works:</b> 
+                                <ul>
+                                    <li>Each packet can travel by different routes</li>
+                                    <li>At the receiver:
+                                        <ol>
+                                            <li>Packets reassembled in correct order</li>
+                                            <li>If any packet is missing → request it again</li>
+                                        </ol>
+                                    </li>
+                                    <li>Result = perfect file reconstruction</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h3>🌍 Protocol (TCP/IP)</h3>
+                        <ul>
+                            <li>The rules (addressing, breaking, sending, reassembling) are called Protocol</li>
+                            <li>Internet's main protocol is TCP/IP (Transmission Control Protocol / Internet Protocol)</li>
+                            <li>TCP → handles reliability (packet order, retransmission of missing packets)</li>
+                            <li>IP → handles addressing and routing</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- IP Address section -->
+        <section id="ipAddress">
+            <table width="100%" >
+                <tr>
+                    <td >
+                        <h2>🌐 IP Address</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" >
+                <tr>
+                    <td width="50%" valign="top">
+                        <h3>IPv4 (classic format):</h3>
+                        <ul>
+                            <li>32 bits (4 bytes)</li>
+                            <li>Divided into 4 octets (8 bits each)</li>
+                            <li>Written in decimal with dots between octets</li>
+                            <li>Example: 172.217.16.142 (Google)</li>
+                            <li>Max 2^32 = 4.3 billion unique addresses</li>
+                            <li>Problem: Not enough addresses for all devices</li>
+                        </ul>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h3>IPv6</h3>
+                        <ul>
+                            <li>128 bits (16 bytes)</li>
+                            <li>Divided into 8 groups (16 bits each)</li>
+                            <li>Written in hexadecimal with colons between groups</li>
+                            <li>Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334</li>
+                            <li>Max 2^128 = 340 undecillion addresses → practically infinite!</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Public IP vs Private IP</h3>
+            <table width="100%" border="1" rules="all">
+                <tr>
+                    <th width="50%">Public IP</th>
+                    <th width="50%">Private IP</th>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Analogy: Company's main phone number</li>
+                            <li>Global, unique → No two devices can have same public IP simultaneously</li>
+                            <li>Purpose: Global reach (servers)</li>
+                            <li>Assigned by: ISP (Jio, Airtel, Comcast)</li>
+                            <li>Who has one:
+                                <ul>
+                                    <li>Routers (home/office)</li>
+                                    <li>Servers (websites, online services)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                    <td >
+                        <ul>
+                            <li>Analogy: Internal phone extensions</li>
+                            <li>Local, non-unique → Same private IP can exist in different networks</li>
+                            <li>Purpose: Local communication within a network</li>
+                            <li>Assigned by: Your router (via DHCP)</li>
+                            <li>Reserved Ranges:
+                                <ul>
+                                    <li>10.0.0.0 – 10.255.255.255 (large orgs)</li>
+                                    <li>172.16.0.0 – 172.31.255.255 (medium networks)</li>
+                                    <li>192.168.0.0 – 192.168.255.255 (most common for homes)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>How Public and Private IPs Work Together</h3>
+            <ul>
+                <li>When your device (private IP) accesses internet → router forwards request using its public IP</li>
+                <li>When response comes → router sends it back to your device's private IP</li>
+                <li>This process is called NAT (Network Address Translation)</li> 
+            </ul>
+            <hr>
+            <h3>🖥️ MAC Address (Media Access Control)</h3>
+            <ul>
+                <li>Unique, permanent 48-bit serial number burned into every network device</li>
+                <li>Purpose: Identifies your device in the local network</li>
+                <li>Formats:
+                    <ol>
+                        <li>Colon-separated → 3C:22:FB:A3:B4:C5</li>
+                        <li>Hyphen-separated → 3C-22-FB-A3-B4-C5</li>
+                        <li>Period-separated (Cisco style) → 3c22.fba3.b4c5</li>
+                        <li>No separators → 3C22FBA3B4C5</li>
+                    </ol>
+                </li>
+            </ul>
+            
+            <h3>Port Number</h3>
+            <ul>
+                <li>16-bit number (0–65535) used with IP address to identify specific applications/services</li>
+                <li>Total ports: 2^16 = 65,536</li>
+                <li><b>Categories of Ports</b>
+                    <ol>
+                        <li>Well-Known Ports (0 – 1023)
+                            <ul>
+                                <li>Reserved for core internet services</li>
+                                <li>Examples: 21 → FTP, 22 → SSH, 25 → SMTP, 53 → DNS, 80 → HTTP, 443 → HTTPS</li>
+                            </ul>
+                        </li>
+                        <li>Registered Ports (1024 – 49151)
+                            <ul>
+                                <li>Used by applications/software</li>
+                                <li>Examples: 3000 → React/Node.js, 3306 → MySQL, 5432 → PostgreSQL, 27017 → MongoDB</li>
+                            </ul>
+                        </li>
+                        <li>Dynamic/Private/Ephemeral (49152 – 65535)
+                            <ul>
+                                <li>Auto-assigned by OS for temporary client connections</li>
+                                <li>Examples: Browser requests use random ports from this range</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+            
+            <h3>Summary</h3>
+            <p>Think of IP Address as your building address that identifies your device in the entire network. MAC Address is like your permanent flat number within that building. Port Number is like the specific room (service/application) within your flat. This way, traffic is directed to the right building, right flat, and right room. 🏢➡️🏠➡️🚪</p>
+            <hr>
+        </section>
+
+        <!-- DNS section -->
+        <section id="dns">
+            <table width="100%" ="10">
+                <tr>
+                    <td >
+                        <h2>🌍 DNS (Domain Name System)</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <ul>
+                <li>DNS is like the internet's phonebook</li>
+                <li>We use human-friendly domain names (www.google.com) but computers understand IP addresses (142.250.72.206)</li>
+                <li>DNS translates domain names to IP addresses</li>
+                <li>Without DNS, we'd have to memorize IP addresses for every website (impossible 🥲)</li>
+            </ul>
+            
+            <h3>DNS Resolution Process</h3>
+            <table width="100%" border="1" rules="all">
+                <tr >
+                    <th width="20%">Step</th>
+                    <th width="80%">Description</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>1. Check Local Cache</b></td>
+                    <td>
+                        <ul>
+                            <li>Browser → OS → Router cache checked first</li>
+                            <li>If IP found → direct connection established</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>2. Recursive Resolver</b></td>
+                    <td>
+                        <ul>
+                            <li>If not in cache → query sent to DNS resolver (ISP / Google 8.8.8.8 / Cloudflare 1.1.1.1)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>3. Hierarchical Search</b></td>
+                    <td>
+                        <ul>
+                            <li>Root Server → directs to TLD (.com, .org) server</li>
+                            <li>TLD Server → directs to domain's authoritative server</li>
+                            <li>Authoritative Server → returns actual IP</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>4. Journey Back</b></td>
+                    <td>
+                        <ul>
+                            <li>IP travels back: Resolver → OS → Browser</li>
+                            <li>Resolver caches the IP (based on TTL) for future requests</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>5. Final Connection</b></td>
+                    <td>
+                        <ul>
+                            <li>Browser connects using IP address + port (443 for HTTPS)</li>
+                            <li>Website loads successfully ✅</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Navigation at bottom -->
+        <section>
+            <table width="100%">
+                <tr>
+                    <td align="center">
+                        <p>
+                            <a href="index.html">HomePage</a> | 
+                            <a href="lecture2.html">Next Lecture →</a>
+                        </p>
+                        <p>HTML Lectures:
+                            <a href="lecture1.html">1</a> |
+                            <a href="lecture2.html">2</a> |
+                            <a href="lecture3.html">3</a> |
+                            <a href="lecture4.html">4</a> |
+                            <a href="lecture5.html">5</a> |
+                            <a href="lecture6.html">6</a>
+                        </p>
+                        <p><a href="#top">Back to top ↑</a></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </main>
     <hr>
+    <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2025 .  Notes compiled for the <b>Defense FullStack</b> webdev course.</p>
-        <p><b>Avinash Singh</b></p>
-        <p>My Twitter/X :- <a href="https://x.com/AvinasTweets" target="_blank">Avinash Singh</a></p>
-        <p><a href="mailto:imavinashsingh2@gmail.com" target="_blank">Mail  Me</a> <br></p>        
-        <p><a href="#top">Back to top ↑</a></p>
+        <table width="100%">
+            <tr>
+                <td width="40%" valign="top">
+                    <h3>About the Course</h3>
+                    <p>Defense FullStack Web Development Notes</p>
+                    <p>Copyright &copy; 2025</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Author</h3>
+                    <p><b>Avinash Singh</b></p>
+                    <p>Web Developer & Instructor</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Connect</h3>
+                    <p>Twitter/X: <a href="https://x.com/AvinasTweets" target="_blank">@AvinasTweets</a></p>
+                    <p>Email: <a href="mailto:imavinashsingh2@gmail.com">imavinashsingh2@gmail.com</a></p>
+                </td>
+            </tr>
+        </table>
     </footer>
 </body>
 </html>
