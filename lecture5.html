@@ -3,23 +3,512 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about HTML media elements including video, audio, and special character entities">
     <title>Notes-Lecture 5</title>
+    <link rel="icon" type="image/x-icon" href="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg">
 </head>
 <body>
+    <!-- Header with navigation -->
     <header>
-
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td width="5%">
+                    <a href="index.html">
+                        <img src="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg" height="40" width="40" alt="Coder Army Logo">
+                    </a>
+                </td>
+                <td width="95%">
+                    <h1>🎥 HTML MEDIA</h1>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Navigation -->
+        <table width="100%" border="1" cellpadding="5" rules="all">
+            <tr align="center">
+                <td width="20%"><a href="index.html">Home</a></td>
+                <td width="16%"><a href="lecture1.html">Internet</a></td>
+                <td width="16%"><a href="lecture2.html">HTML Basics</a></td>
+                <td width="16%"><a href="lecture3.html">File Paths & Structure</a></td>
+                <td width="16%"><a href="lecture4.html">Forms</a></td>
+                <td width="16%"><a href="lecture5.html"><b>HTML Media</b></a></td>
+            </tr>
+        </table>
+        <hr>
     </header>
-    <hr>
-    <main>
 
+    <!-- Intro section with topics -->
+    <section>
+        <table width="100%" cellpadding="10">
+            <tr>
+                <td width="60%" valign="top">
+                    <h2>Topics Covered:</h2>
+                    <ul>
+                        <li><a href="#firstPrinciple">First Principle</a></li>
+                        <li><a href="#videoBasics">Video Basics</a></li>
+                        <li><a href="#videoAttributes">Video Attributes</a></li>
+                        <li><a href="#audioTag">Audio Tag</a></li>
+                        <li><a href="#professionalMethod">Professional Method</a></li>
+                        <li><a href="#srcVsSource">src vs &lt;source&gt; Comparison</a></li>
+                        <li><a href="#entities">Special Symbols with Entities</a></li>
+                        <li><a href="#takeaway">Final Takeaway</a></li>
+                    </ul>
+                </td> 
+                <td width="40%" valign="top" align="center">
+                    <h3>Video Explanation</h3>
+                    <iframe width="350" height="200" src="https://www.youtube.com/embed/NGYp1zCBthk?si=OrG29b9A6UEs_qLp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><i>Watch this video for a visual explanation</i></p>
+                </td>               
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <!-- Main content -->
+    <main id="content">
+        <!-- First Principle section -->
+        <section id="firstPrinciple">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🌍 First Principle</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>The Web is More Than Text & Images → Webpages should support video, audio, animations, interactive content without relying on insecure plugins (Flash, QuickTime, Silverlight).</p>
+            
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <h3>Why Native HTML Media?</h3>
+                        <ul>
+                            <li><b>Security:</b> No need for vulnerable plugins like Flash</li>
+                            <li><b>Performance:</b> Better integration with browsers</li>
+                            <li><b>Accessibility:</b> Built-in support for captions and controls</li>
+                            <li><b>Mobile Friendly:</b> Works on all devices without extra software</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Video Basics section -->
+        <section id="videoBasics">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🎬 Part 1: Basics – Adding Video</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;video src="my-video.mp4"&gt;&lt;/video&gt;
+                        </pre>
+                        <p><i>👉 Sirf ek frame dikhega, player controls nahi aayenge.</i></p>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Solution → controls attribute</h4>
+                        <pre>
+&lt;video src="my-video.mp4" controls&gt;&lt;/video&gt;
+                        </pre>
+                        <p><i>✔ Play, pause, volume, fullscreen → sab built-in aa jata hai.</i></p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Live Example:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td align="center">
+                        <video src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4" controls width="400">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p><i>Sample video with controls enabled</i></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Video Attributes section -->
+        <section id="videoAttributes">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>⚙ Part 2: More Control with Attributes</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>width, height</b></td>
+                    <td valign="top">Size control</td>
+                    <td valign="top">width="640" height="360"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>autoplay</b></td>
+                    <td valign="top">Auto play (⚠ needs muted)</td>
+                    <td valign="top">autoplay</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>loop</b></td>
+                    <td valign="top">Repeat after finish</td>
+                    <td valign="top">loop</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>poster</b></td>
+                    <td valign="top">Thumbnail before play</td>
+                    <td valign="top">poster="thumbnail.jpg"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>muted</b></td>
+                    <td valign="top">Mute the audio</td>
+                    <td valign="top">muted</td>
+                </tr>
+            </table>
+            
+            <h3>Complete Example:</h3>
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+&lt;video src="video.mp4" width="640" height="360" 
+       autoplay muted loop poster="thumbnail.jpg" controls&gt;
+&lt;/video&gt;
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Audio Tag section -->
+        <section id="audioTag">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🎵 Part 3: Audio Tag</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;p&gt;Listen to theme song:&lt;/p&gt;
+&lt;audio src="audio/song.mp3" controls&gt;&lt;/audio&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <p>Listen to theme song:</p>
+                        <audio controls>
+                            <source src="./assets/audio.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p><i>✔ Same attributes → autoplay, loop, muted</i></p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Audio Attributes:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>controls</b></td>
+                    <td valign="top">Shows audio controls</td>
+                    <td valign="top">controls</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>autoplay</b></td>
+                    <td valign="top">Auto plays the audio</td>
+                    <td valign="top">autoplay</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>loop</b></td>
+                    <td valign="top">Loops the audio</td>
+                    <td valign="top">loop</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>muted</b></td>
+                    <td valign="top">Mutes the audio</td>
+                    <td valign="top">muted</td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Professional Method section -->
+        <section id="professionalMethod">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🚀 Part 4: Professional Method (Multiple Sources + Tracks)</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>✅ Multiple Sources for Browser Compatibility</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;video controls poster="images/thumb.jpg"&gt;
+  &lt;source src="movie.webm" type="video/webm"&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  Sorry, your browser doesn't support videos.
+&lt;/video&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Explanation</h4>
+                        <p>👉 Browser top to bottom check karega, jo format supported hoga wohi play karega.</p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>✅ Accessibility with &lt;track&gt;</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;video controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;track src="captions_en.vtt" kind="captions" 
+         srclang="en" label="English"&gt;
+  &lt;track src="subtitles_es.vtt" kind="subtitles" 
+         srclang="es" label="Español"&gt;
+&lt;/video&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Explanation</h4>
+                        <p>✔ Subtitles / Captions / Descriptions support</p>
+                        <p>WebVTT (.vtt) files are used for captions and subtitles.</p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Example WebVTT File (captions_en.vtt):</h3>
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+WEBVTT
+
+1
+00:00:01.000 --> 00:00:04.000
+This is the first caption.
+
+2
+00:00:05.000 --> 00:00:08.000
+This is the second caption.
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- src vs source Comparison section -->
+        <section id="srcVsSource">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>📊 Comparison – src vs &lt;source&gt;</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Feature</th>
+                    <th width="40%">&lt;video src&gt; (Simple)</th>
+                    <th width="40%">&lt;video&gt;&lt;source&gt;&lt;/video&gt; (Professional)</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Compatibility</b></td>
+                    <td valign="top">Limited (one format only)</td>
+                    <td valign="top">High (multiple formats fallback)</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Simplicity</b></td>
+                    <td valign="top">Very easy</td>
+                    <td valign="top">More complex</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Flexibility</b></td>
+                    <td valign="top">Low</td>
+                    <td valign="top">High</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Fallback text</b></td>
+                    <td valign="top">❌ None</td>
+                    <td valign="top">✅ Yes</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Best Use</b></td>
+                    <td valign="top">Quick test / internal</td>
+                    <td valign="top">Public-facing, professional</td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Special Symbols with Entities section -->
+        <section id="entities">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>💡 Special Symbols with Entities</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Entity</th>
+                    <th width="40%">Symbol</th>
+                    <th width="40%">Description</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&amp;copy;</b></td>
+                    <td valign="top">©</td>
+                    <td valign="top">Copyright symbol</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&amp;reg;</b></td>
+                    <td valign="top">®</td>
+                    <td valign="top">Registered trademark symbol</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&amp;trade;</b></td>
+                    <td valign="top">™</td>
+                    <td valign="top">Trademark symbol</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&amp;lt;</b></td>
+                    <td valign="top">&lt;</td>
+                    <td valign="top">Less than symbol</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&amp;gt;</b></td>
+                    <td valign="top">&gt;</td>
+                    <td valign="top">Greater than symbol</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>&amp;amp;</b></td>
+                    <td valign="top">&amp;</td>
+                    <td valign="top">Ampersand symbol</td>
+                </tr>
+            </table>
+            
+            <h3>Example Usage:</h3>
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+&lt;footer&gt;
+  &lt;p&gt;Copyright &amp;copy; 2024 My Awesome Website. All Rights Reserved.&lt;/p&gt;
+&lt;/footer&gt;
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Final Takeaway section -->
+        <section id="takeaway">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🎯 Final Takeaway</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" bgcolor="#e8f4f8">
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Use &lt;video&gt; + &lt;audio&gt; → No plugins, native support.</li>
+                            <li>Add controls → Makes it usable instantly.</li>
+                            <li>Always prefer &lt;source&gt; + &lt;track&gt; → Best practice for compatibility & accessibility.</li>
+                            <li>Entities are must → For symbols and reserved characters like &lt;, &gt;, &amp;.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Navigation at bottom -->
+        <section>
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td align="center">
+                        <p>
+                            ← <a href="lecture4.html">Previous Lecture</a> |
+                            <a href="index.html">HomePage</a> 
+                        </p>
+                        <p>HTML Lectures:
+                            <a href="lecture1.html">1</a> |
+                            <a href="lecture2.html">2</a> |
+                            <a href="lecture3.html">3</a> |
+                            <a href="lecture4.html">4</a> |
+                            <a href="lecture5.html">5</a> |
+                            
+                        </p>
+                        <p><a href="#top">Back to top ↑</a></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </main>
-    <hr>
+
+    <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2025 .  Notes compiled for the <b>Defense FullStack</b> webdev course.</p>
-        <p><b>Avinash Singh</b></p>
-        <p>My Twitter/X :- <a href="https://x.com/AvinasTweets" target="_blank">Avinash Singh</a></p>
-        <p><a href="mailto:imavinashsingh2@gmail.com" target="_blank">Mail  Me</a> <br></p>        
-        <p><a href="#top">Back to top ↑</a></p>
+        <table width="100%" cellpadding="10" bgcolor="#f0f0f0">
+            <tr>
+                <td width="40%" valign="top">
+                    <h3>About the Course</h3>
+                    <p>Defense FullStack Web Development Notes</p>
+                    <p>Copyright &copy; 2025</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Author</h3>
+                    <p><b>Avinash Singh</b></p>
+                    <p>Web Developer & Instructor</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Connect</h3>
+                    <p>Twitter/X: <a href="https://x.com/AvinasTweets" target="_blank">@AvinasTweets</a></p>
+                    <p>Email: <a href="mailto:imavinashsingh2@gmail.com">imavinashsingh2@gmail.com</a></p>
+                </td>
+            </tr>
+        </table>
     </footer>
 </body>
 </html>

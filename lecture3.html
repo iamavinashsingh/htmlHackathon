@@ -3,40 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about HTML file paths, document structure, semantic HTML, and multi-page website organization">
     <title>Notes-Lecture 3</title>
+    <link rel="icon" type="image/x-icon" href="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg">
 </head>
 <body>
+    <!-- Header with navigation -->
     <header>
-        <table width="100%">
+        <table width="100%" cellpadding="5">
             <tr>
                 <td width="5%">
-                    <img src="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg" height="50" width="50" alt="Coder Army Logo">
+                    <a href="index.html">
+                        <img src="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg" height="40" width="40" alt="Coder Army Logo">
+                    </a>
                 </td>
-                <td width="80%">
-                    <h1>WEB DEV NOTES</h1>
+                <td width="95%">
+                    <h1>📁 FILE PATHS & HTML STRUCTURE</h1>
                 </td>
+
             </tr>
         </table>
-        <table width="100%" border="1" cellpadding="5" rules="all" >
-            <tr align="center">
-                <td width="14%"><a href="index.html">Home</a></td>
-                <td width="14%"><a href="lecture1.html">Internet</a></td>
-                <td width="14%"><a href="lecture2.html">HTML Basics</a></td>
-                <td width="14%"><a href="lecture3.html"><b>File Paths & Structure</b></a></td>
-                <td width="14%"><a href="lecture4.html">Forms</a></td>
-                <td width="14%"><a href="lecture5.html">Semantic HTML</a></td>
-                <td width="14%"><a href="lecture6.html">Accessibility</a></td>
-            </tr>
-        </table>
-    </header>
-    <hr>
-    <main>
         
+        <!-- Navigation -->
+        <table width="100%" border="1" cellpadding="5" rules="all">
+            <tr align="center">
+                <td width="20%"><a href="index.html">Home</a></td>
+                <td width="16%"><a href="lecture1.html">Internet</a></td>
+                <td width="16%"><a href="lecture2.html">HTML Basics</a></td>
+                <td width="16%"><a href="lecture3.html"><b>File Paths & Structure</b></a></td>
+                <td width="16%"><a href="lecture4.html">Forms</a></td>
+                <td width="16%"><a href="lecture5.html">HTML Media</a></td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <!-- Intro section with topics -->
+    <section>
+        <table width="100%" cellpadding="10">
+            <tr>
+                <td width="60%" valign="top">
+                    <h2>Topics Covered:</h2>
+                    <ul>
+                        <li><a href="#filePaths">File Path System</a></li>
+                        <li><a href="#relativePaths">Relative Paths</a></li>
+                        <li><a href="#absolutePaths">Absolute Paths</a></li>
+                        <li><a href="#boilerplate">HTML Boilerplate</a></li>
+                        <li><a href="#semanticHTML">Semantic HTML Structure</a></li>
+                        <li><a href="#divSpan">Div, Span, Class & ID</a></li>
+                        <li><a href="#multiPage">Multi-page Websites</a></li>
+                    </ul>
+                </td> 
+                <td width="40%" valign="top" align="center">
+                    <h3>Video Explanation</h3>
+                    <iframe width="300" height="150" src="https://www.youtube.com/embed/k78lNSAB8VY?si=rbWwuGZyihYNkGjb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><i>Watch this video for better explanation</i></p>
+                </td>               
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <!-- Main content -->
+    <main id="content">
+        <!-- File Path System section -->
+        <section id="filePaths">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>📁 File Path System</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Ek website ek single file nahi hoti, balki folders aur files ka pura collection hota hai – HTML, CSS, JavaScript, images, fonts, videos, sab ek hi project ke andar arranged hote hain.</p>
+            
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <h3>Typical Website Structure:</h3>
+                        <pre>
+project-folder/
+├── index.html
+├── about.html
+├── contact.html
+├── styles/
+│   └── style.css
+├── scripts/
+│   └── script.js
+└── images/
+    ├── logo.png
+    └── banner.jpg
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Relative Paths section -->
+        <section id="relativePaths">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>📍 Relative Paths</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Relative paths apne hi website ke andar files ko refer karte hain. Ye current file ke location ke relative kaam karte hain.</p>
+            
+            <h3>Examples:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="30%">Scenario</th>
+                    <th width="40%">Code Example</th>
+                    <th width="30%">Explanation</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Same folder</b></td>
+                    <td valign="top"><code>&lt;a href="about.html"&gt;About Us&lt;/a&gt;</code></td>
+                    <td valign="top">Current directory mein file</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Subfolder (going down)</b></td>
+                    <td valign="top"><code>&lt;img src="images/logo.png" alt="My Website Logo"&gt;</code></td>
+                    <td valign="top">Current folder ke andar images folder mein file</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Parent folder (going up)</b></td>
+                    <td valign="top"><code>&lt;img src="../images/logo.png" alt="My Website Logo"&gt;</code></td>
+                    <td valign="top">Ek folder upar jaake images folder mein file</td>
+                </tr>
+            </table>
+            
+            <h3>Path Navigation Symbols:</h3>
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <ul>
+                            <li><b>./</b> - Current folder (optional, usually implied)</li>
+                            <li><b>../</b> - Parent folder (ek level up)</li>
+                            <li><b>../../</b> - Grandparent folder (do levels up)</li>
+                        </ul>
+                        <p><b>⚡ Key:</b> Har ../ ek folder level upar le jaata hai.</p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Absolute Paths section -->
+        <section id="absolutePaths">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🌍 Absolute Paths</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Absolute paths full web address ya complete system path use karte hain.</p>
+            
+            <h3>Examples:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="30%">Type</th>
+                    <th width="40%">Code Example</th>
+                    <th width="30%">Explanation</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Web URL</b></td>
+                    <td valign="top"><code>&lt;a href="https://www.google.com"&gt;Search on Google&lt;/a&gt;</code></td>
+                    <td valign="top">Pure internet address ka use</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Root-relative</b></td>
+                    <td valign="top"><code>&lt;img src="/images/logo.png" alt="Logo"&gt;</code></td>
+                    <td valign="top">Website root se start hota hai (server par)</td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" bgcolor="#fff3cd">
+                <tr>
+                    <td>
+                        <h3>⚠️ Important Warning</h3>
+                        <p>Apni files ke liye kabhi absolute system paths mat use karo (jaise <code>C:/Users/xyz/file.png</code>), kyunki server par kaam nahi karega. Always use relative paths for your own files.</p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- HTML Boilerplate section -->
+        <section id="boilerplate">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>⚡ HTML Boilerplate (Starter Code)</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Sabhi HTML pages ka base structure ye hota hai:</p>
+            
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Your content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Boilerplate Components Explained:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Element</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Notes</th>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;!DOCTYPE html&gt;</code></td>
+                    <td valign="top">HTML5 version batata hai</td>
+                    <td valign="top">Browser ko batata hai ki ye HTML5 document hai</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;html lang="en"&gt;</code></td>
+                    <td valign="top">Language set karta hai</td>
+                    <td valign="top">Screen readers ke liye important for accessibility</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;meta charset="UTF-8"&gt;</code></td>
+                    <td valign="top">Text encoding set karta hai</td>
+                    <td valign="top">Special characters properly display karne ke liye</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;meta name="viewport"&gt;</code></td>
+                    <td valign="top">Responsive (mobile friendly) banata hai</td>
+                    <td valign="top">Mobile devices par proper scaling ke liye</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;title&gt;</code></td>
+                    <td valign="top">Browser tab ka naam set karta hai</td>
+                    <td valign="top">SEO ke liye bahut important</td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Semantic HTML section -->
+        <section id="semanticHTML">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🏗 Page Structure with Semantic HTML</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Semantic HTML ka matlab: tags ko unke real meaning ke liye use karo. Isse accessibility improve hoti hai aur SEO bhi better hota hai.</p>
+            
+            <h3>Semantic HTML Example:</h3>
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+&lt;header&gt;
+  &lt;h1&gt;Website Title&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;h2&gt;Section Title&lt;/h2&gt;
+    &lt;article&gt;
+      &lt;p&gt;Article content goes here...&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;Copyright Info&lt;/p&gt;
+&lt;/footer&gt;
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Common Semantic Tags:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Tag</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;header&gt;</code></td>
+                    <td valign="top">Page ya section ka introduction</td>
+                    <td valign="top">Logo, navigation, heading</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;nav&gt;</code></td>
+                    <td valign="top">Navigation links</td>
+                    <td valign="top">Menu, table of contents</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;main&gt;</code></td>
+                    <td valign="top">Page ka primary content</td>
+                    <td valign="top">📌 Rule: Ek page me sirf ek &lt;main&gt; hota hai</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;section&gt;</code></td>
+                    <td valign="top">Thematic grouping of content</td>
+                    <td valign="top">Chapters, tabs, different content areas</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;article&gt;</code></td>
+                    <td valign="top">Self-contained composition</td>
+                    <td valign="top">Blog post, news story, comment</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;aside&gt;</code></td>
+                    <td valign="top">Related but tangential content</td>
+                    <td valign="top">Sidebars, pull quotes, advertising</td>
+                </tr>
+                <tr>
+                    <td valign="top"><code>&lt;footer&gt;</code></td>
+                    <td valign="top">Page ya section ka conclusion</td>
+                    <td valign="top">Contact info, copyright, related documents</td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Div, Span, Class & ID section -->
+        <section id="divSpan">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>📦 Div, Span, Class & ID</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h3>&lt;div&gt; → Block Container</h3>
+                        <ul>
+                            <li>Grouping content ke liye use hota hai</li>
+                            <li>Block-level element (puri width leta hai)</li>
+                            <li>No inherent meaning (generic container)</li>
+                        </ul>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h3>&lt;span&gt; → Inline Container</h3>
+                        <ul>
+                            <li>Text ke parts ko style karne ke liye</li>
+                            <li>Inline element (jitni jagah chahiye utni leta hai)</li>
+                            <li>No inherent meaning (generic inline container)</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Class vs ID:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Class</b></td>
+                    <td valign="top">Reusable (multiple elements ke liye)</td>
+                    <td valign="top"><code>&lt;div class="product-card"&gt;Product 1&lt;/div&gt;</code></td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>ID</b></td>
+                    <td valign="top">Unique (ek page me sirf ek element ke liye)</td>
+                    <td valign="top"><code>&lt;div class="product-card" id="featured-product"&gt;Product 2&lt;/div&gt;</code></td>
+                </tr>
+            </table>
+            
+            <h3>When to Use Which:</h3>
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <ul>
+                            <li><b>Class:</b> Jab aapko multiple elements ko same style deni ho</li>
+                            <li><b>ID:</b> Jab aapko kisi specific element ko target karna ho (JavaScript ke through ya internal linking ke liye)</li>
+                            <li><b>Rule:</b> ID should be unique, class can be reused</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Multi-page Websites section -->
+        <section id="multiPage">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🌐 Multi-page Websites</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Ek website ke multiple HTML files hote hain, aur unhe links ke zariye connect karna padta hai.</p>
+            
+            <h3>Navigation Example:</h3>
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Linking Examples:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="30%">Scenario</th>
+                    <th width="40%">Code Example</th>
+                    <th width="30%">Explanation</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Same folder</b></td>
+                    <td valign="top"><code>&lt;a href="about.html"&gt;About Us&lt;/a&gt;</code></td>
+                    <td valign="top">Current directory mein file</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Subfolder</b></td>
+                    <td valign="top"><code>&lt;a href="pages/contact.html"&gt;Contact&lt;/a&gt;</code></td>
+                    <td valign="top">Pages folder ke andar contact.html</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>Back to parent folder</b></td>
+                    <td valign="top"><code>&lt;a href="../index.html"&gt;Home&lt;/a&gt;</code></td>
+                    <td valign="top">Ek folder upar jaake index.html</td>
+                </tr>
+            </table>
+            
+            <h3>🎯 Summary</h3>
+            <table width="100%" cellpadding="10" bgcolor="#e8f4f8">
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Always start with boilerplate</li>
+                            <li>Relative paths → apni files ke liye</li>
+                            <li>Absolute paths → sirf external resources ke liye</li>
+                            <li>Semantic tags use karo for structure</li>
+                            <li>Class → reusable, ID → unique</li>
+                            <li>Navigation har page par consistent rakho</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Navigation at bottom -->
+        <section>
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td align="center">
+                        <p>
+                            ← <a href="lecture2.html">Previous Lecture</a> |
+                            <a href="index.html">HomePage</a> | 
+                            <a href="lecture4.html">Next Lecture</a> →
+                        </p>
+                        <p>HTML Lectures:
+                            <a href="lecture1.html">1</a> |
+                            <a href="lecture2.html">2</a> |
+                            <a href="lecture3.html">3</a> |
+                            <a href="lecture4.html">4</a> |
+                            <a href="lecture5.html">5</a> |
+                            
+                        </p>
+                        <p><a href="#top">Back to top ↑</a></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </main>
-    <hr>
+
     <!-- Footer -->
     <footer>
-        <table width="100%" cellpadding="10" >
+        <table width="100%" cellpadding="10" bgcolor="#f0f0f0">
             <tr>
                 <td width="40%" valign="top">
                     <h3>About the Course</h3>

@@ -3,23 +3,710 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about HTML forms, input elements, form attributes, and how to create interactive web forms">
     <title>Notes-Lecture 4</title>
+    <link rel="icon" type="image/x-icon" href="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg">
 </head>
 <body>
+    <!-- Header with navigation -->
     <header>
-
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td width="5%">
+                    <a href="index.html">
+                        <img src="https://pbs.twimg.com/profile_images/1966797696876093440/PY3FJVtL_400x400.jpg" height="40" width="40" alt="Coder Army Logo">
+                    </a>
+                </td>
+                <td width="95%">
+                    <h1>📝 HTML FORMS</h1>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Navigation -->
+        <table width="100%" border="1" cellpadding="5" rules="all">
+            <tr align="center">
+                <td width="20%"><a href="index.html">Home</a></td>
+                <td width="16%"><a href="lecture1.html">Internet</a></td>
+                <td width="16%"><a href="lecture2.html">HTML Basics</a></td>
+                <td width="16%"><a href="lecture3.html">File Paths & Structure</a></td>
+                <td width="16%"><a href="lecture4.html"><b>Forms</b></a></td>
+                <td width="16%"><a href="lecture5.html">HTML Media</a></td>
+            </tr>
+        </table>
+        <hr>
     </header>
-    <hr>
-    <main>
 
+    <!-- Intro section with topics -->
+    <section>
+        <table width="100%" cellpadding="10">
+            <tr>
+                <td width="60%" valign="top">
+                    <h2>Topics Covered:</h2>
+                    <ul>
+                        <li><a href="#whyForms">Why Forms?</a></li>
+                        <li><a href="#formStructure">Form Structure</a></li>
+                        <li><a href="#inputElements">Input Elements</a></li>
+                        <li><a href="#textInputs">Text Input Types</a></li>
+                        <li><a href="#selectionInputs">Selection Inputs</a></li>
+                        <li><a href="#otherInputs">Other Input Types</a></li>
+                        <li><a href="#textarea">Textarea Element</a></li>
+                        <li><a href="#select">Select Dropdown</a></li>
+                        <li><a href="#buttons">Button Elements</a></li>
+                        <li><a href="#completeForm">Complete Form Example</a></li>
+                    </ul>
+                </td> 
+                <td width="40%" valign="top" align="center">
+                    <h3>Video Explanation</h3>
+                    <iframe width="450" height="250" src="https://www.youtube.com/embed/a4j9R_DvZ8M?si=1eT3aYpBANU1cvuB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><i>Watch this video for better explanation</i></p>
+                </td>               
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <!-- Main content -->
+    <main id="content">
+        <!-- Why Forms section -->
+        <section id="whyForms">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🌐 Why Forms?</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Forms web ko read-only se interactive banata hai. Forms ke bina:</p>
+            <ul>
+                <li>Login / Signup nahi ho paata</li>
+                <li>Search / Comments / Checkout possible nahi hota</li>
+                <li>Server ko data bhejna mushkil ho jaata</li>
+            </ul>
+            
+            <p><b>👉 Forms = User input collect + Server ko bhejna</b></p>
+            <hr>
+        </section>
+
+        <!-- Form Structure section -->
+        <section id="formStructure">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🏗 Core Structure</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+&lt;form action="server-endpoint" method="POST"&gt;
+  &lt;!-- Fields --&gt;
+  &lt;input type="text" name="username" placeholder="Enter Name"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Form Attributes:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example Values</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>action</b></td>
+                    <td valign="top">Data kahan bhejna hai (server endpoint)</td>
+                    <td valign="top">"/submit-form", "process.php"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>method</b></td>
+                    <td valign="top">Kaise bhejna hai (GET ya POST)</td>
+                    <td valign="top">GET (default), POST</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>target</b></td>
+                    <td valign="top">Response kahan display karna hai</td>
+                    <td valign="top">_blank, _self, _parent, _top</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>autocomplete</b></td>
+                    <td valign="top">Autocomplete enable/disable karta hai</td>
+                    <td valign="top">on, off</td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Input Elements section -->
+        <section id="inputElements">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>✨ Building Blocks - Input Elements</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>The &lt;input&gt; element is the most important form element. It can be displayed in many ways, depending on the type attribute.</p>
+            
+            <table width="100%" cellpadding="10" bgcolor="#f9f9f9">
+                <tr>
+                    <td>
+                        <pre>
+&lt;input type="text" name="username" placeholder="Enter your username"&gt;
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Common Input Attributes:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>type</b></td>
+                    <td valign="top">Specifies the input type</td>
+                    <td valign="top">text, password, checkbox, etc.</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>name</b></td>
+                    <td valign="top">Input ka naam (form submission ke liye important)</td>
+                    <td valign="top">username, email, password</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>value</b></td>
+                    <td valign="top">Default value specify karta hai</td>
+                    <td valign="top">value="default text"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>placeholder</b></td>
+                    <td valign="top">Expected value ka hint provide karta hai</td>
+                    <td valign="top">placeholder="Enter your name"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>required</b></td>
+                    <td valign="top">Specifies that the input must be filled out</td>
+                    <td valign="top">required</td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Text Input Types section -->
+        <section id="textInputs">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>📝 Text Input Types</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>1. Text Input + Label</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;label for="firstName"&gt;First Name:&lt;/label&gt;
+&lt;input type="text" id="firstName" name="firstName"&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <label for="firstName">First Name:</label><br>
+                        <input type="text" id="firstName" name="firstName">
+                        <p><i>✔ Label clickable ho jaata hai<br>✔ Screen readers ke liye accessible</i></p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Other Text Input Types:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Type</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>password</b></td>
+                    <td valign="top">Password field (characters are masked)</td>
+                    <td valign="top">
+                        <input type="password" placeholder="Enter password">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>email</b></td>
+                    <td valign="top">Email address field with validation</td>
+                    <td valign="top">
+                        <input type="email" placeholder="Enter email address">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>number</b></td>
+                    <td valign="top">Numeric input field</td>
+                    <td valign="top">
+                        <input type="number" placeholder="Enter a number">
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Selection Inputs section -->
+        <section id="selectionInputs">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🔘 Selection Input Types</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>2. Radio Buttons (Select One)</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;label&gt;T-Shirt Size:&lt;/label&gt;&lt;br&gt;
+&lt;input type="radio" id="sizeS" name="shirtSize" value="small"&gt;
+&lt;label for="sizeS"&gt;Small&lt;/label&gt;&lt;br&gt;
+&lt;input type="radio" id="sizeM" name="shirtSize" value="medium"&gt;
+&lt;label for="sizeM"&gt;Medium&lt;/label&gt;&lt;br&gt;
+&lt;input type="radio" id="sizeL" name="shirtSize" value="large"&gt;
+&lt;label for="sizeL"&gt;Large&lt;/label&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <label>T-Shirt Size:</label><br>
+                        <input type="radio" id="sizeS" name="shirtSize" value="small">
+                        <label for="sizeS">Small</label><br>
+                        <input type="radio" id="sizeM" name="shirtSize" value="medium">
+                        <label for="sizeM">Medium</label><br>
+                        <input type="radio" id="sizeL" name="shirtSize" value="large">
+                        <label for="sizeL">Large</label>
+                        <p><i>✔ Same name → group banata hai (sirf ek option select hoga)</i></p>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>3. Checkboxes (Select Many)</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;label&gt;Pizza Toppings:&lt;/label&gt;&lt;br&gt;
+&lt;input type="checkbox" id="t1" name="toppings" value="pepperoni"&gt;
+&lt;label for="t1"&gt;Pepperoni&lt;/label&gt;&lt;br&gt;
+&lt;input type="checkbox" id="t2" name="toppings" value="mushrooms"&gt;
+&lt;label for="t2"&gt;Mushrooms&lt;/label&gt;&lt;br&gt;
+&lt;input type="checkbox" id="t3" name="toppings" value="onions"&gt;
+&lt;label for="t3"&gt;Onions&lt;/label&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <label>Pizza Toppings:</label><br>
+                        <input type="checkbox" id="t1" name="toppings" value="pepperoni">
+                        <label for="t1">Pepperoni</label><br>
+                        <input type="checkbox" id="t2" name="toppings" value="mushrooms">
+                        <label for="t2">Mushrooms</label><br>
+                        <input type="checkbox" id="t3" name="toppings" value="onions">
+                        <label for="t3">Onions</label>
+                        <p><i>✔ Multiple select kar sakte ho</i></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Other Input Types section -->
+        <section id="otherInputs">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🎛️ Other Input Types (HTML5 Power-ups)</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Type</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>date</b></td>
+                    <td valign="top">Date picker control</td>
+                    <td valign="top">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>color</b></td>
+                    <td valign="top">Color picker control</td>
+                    <td valign="top">
+                        <input type="color" id="favcolor" name="favcolor">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>range</b></td>
+                    <td valign="top">Slider control for selecting a value from a range</td>
+                    <td valign="top">
+                        <input type="range" id="vol" name="vol" min="0" max="100">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>file</b></td>
+                    <td valign="top">File upload control</td>
+                    <td valign="top">
+                        <input type="file" id="myfile" name="myfile">
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Textarea section -->
+        <section id="textarea">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>📄 Textarea Element</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>The &lt;textarea&gt; element defines a multi-line text input control:</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;label for="comments"&gt;Special Instructions:&lt;/label&gt;&lt;br&gt;
+&lt;textarea id="comments" name="comments" rows="4" cols="40"&gt;&lt;/textarea&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <label for="comments">Special Instructions:</label><br>
+                        <textarea id="comments" name="comments" rows="4" cols="40"></textarea>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Textarea Attributes:</h3>
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr bgcolor="#e0e0e0">
+                    <th width="20%">Attribute</th>
+                    <th width="40%">Purpose</th>
+                    <th width="40%">Example</th>
+                </tr>
+                <tr>
+                    <td valign="top"><b>rows</b></td>
+                    <td valign="top">Specifies the visible number of lines</td>
+                    <td valign="top">rows="4"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>cols</b></td>
+                    <td valign="top">Specifies the visible width</td>
+                    <td valign="top">cols="50"</td>
+                </tr>
+                <tr>
+                    <td valign="top"><b>placeholder</b></td>
+                    <td valign="top">Provides a hint about the expected value</td>
+                    <td valign="top">placeholder="Enter your message here"</td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Select Dropdown section -->
+        <section id="select">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🔽 Select Dropdown</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>The &lt;select&gt; element defines a drop-down list:</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;label for="country"&gt;Country:&lt;/label&gt;&lt;br&gt;
+&lt;select id="country" name="country"&gt;
+  &lt;option value=""&gt;--Select--&lt;/option&gt;
+  &lt;option value="in"&gt;India&lt;/option&gt;
+  &lt;option value="us"&gt;USA&lt;/option&gt;
+  &lt;option value="uk"&gt;UK&lt;/option&gt;
+&lt;/select&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <label for="country">Country:</label><br>
+                        <select id="country" name="country">
+                          <option value="">--Select--</option>
+                          <option value="in">India</option>
+                          <option value="us">USA</option>
+                          <option value="uk">UK</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Multiple Selection</h3>
+            <p>Allow multiple selections with the multiple attribute:</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;select multiple&gt;
+  &lt;option value="html"&gt;HTML&lt;/option&gt;
+  &lt;option value="css"&gt;CSS&lt;/option&gt;
+  &lt;option value="js"&gt;JavaScript&lt;/option&gt;
+  &lt;option value="python"&gt;Python&lt;/option&gt;
+&lt;/select&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <select multiple>
+                          <option value="html">HTML</option>
+                          <option value="css">CSS</option>
+                          <option value="js">JavaScript</option>
+                          <option value="python">Python</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Button Elements section -->
+        <section id="buttons">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>🖱️ Button Elements</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Submit Button</h3>
+            <p>Submits the form data:</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;input type="submit" value="Submit Form"&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <input type="submit" value="Submit Form">
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Reset Button</h3>
+            <p>Resets all form values to their defaults:</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;input type="reset" value="Reset Form"&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <input type="reset" value="Reset Form">
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>Button Element</h3>
+            <p>A clickable button that can have custom functionality:</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td width="50%" valign="top">
+                        <h4>HTML Code</h4>
+                        <pre>
+&lt;button type="button"&gt;Click Me&lt;/button&gt;
+                        </pre>
+                    </td>
+                    <td width="50%" valign="top">
+                        <h4>Browser Output</h4>
+                        <button type="button">Click Me</button>
+                        <p><i>✔ Flexible → text, image, icon sab daal sakte ho</i></p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Complete Form Example section -->
+        <section id="completeForm">
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td bgcolor="#e8f4f8">
+                        <h2>📦 Complete Form Example</h2>
+                    </td>
+                </tr>
+            </table>
+            
+            <p>Here's a complete registration form example using various form elements:</p>
+            
+            <table width="100%" cellpadding="10" border="1" rules="all">
+                <tr>
+                    <td valign="top">
+                        <h3>Personal Information</h3>
+                        
+                        <form action="/submit" method="POST">
+                          <label for="fname">Full Name:</label><br>
+                          <input type="text" id="fname" name="firstName" placeholder="Enter your full name"><br><br>
+
+                          <label for="email">Email Address:</label><br>
+                          <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+
+                          <label for="pwd">Password:</label><br>
+                          <input type="password" id="pwd" name="password" placeholder="Create a password"><br><br>
+
+                          <label for="dob">Date of Birth:</label><br>
+                          <input type="date" id="dob" name="dob"><br><br>
+
+                          <h3>Additional Information</h3>
+                          
+                          <label>Gender:</label><br>
+                          <input type="radio" id="male" name="gender" value="male">
+                          <label for="male">Male</label>
+                          <input type="radio" id="female" name="gender" value="female">
+                          <label for="female">Female</label>
+                          <input type="radio" id="other" name="gender" value="other">
+                          <label for="other">Other</label><br><br>
+
+                          <label>Interests (select all that apply):</label><br>
+                          <input type="checkbox" id="tech" name="interests" value="technology">
+                          <label for="tech">Technology</label>
+                          <input type="checkbox" id="sports" name="interests" value="sports">
+                          <label for="sports">Sports</label>
+                          <input type="checkbox" id="books" name="interests" value="books">
+                          <label for="books">Books</label><br><br>
+
+                          <label for="country">Country:</label><br>
+                          <select id="country" name="country">
+                            <option value="">Select your country</option>
+                            <option value="in">India</option>
+                            <option value="us">USA</option>
+                            <option value="uk">UK</option>
+                            <option value="ca">Canada</option>
+                            <option value="au">Australia</option>
+                          </select><br><br>
+
+                          <label for="bio">Bio:</label><br>
+                          <textarea id="bio" name="bio" rows="4" cols="40" placeholder="Tell us about yourself"></textarea><br><br>
+
+                          <input type="submit" value="Register">
+                          <input type="reset" value="Clear Form">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            
+            <h3>🎯 Key Takeaways</h3>
+            <table width="100%" cellpadding="10" bgcolor="#e8f4f8">
+                <tr>
+                    <td>
+                        <ul>
+                            <li>id + for → accessibility + usability</li>
+                            <li>name attribute → actual key/value server ko bhejne ke liye</li>
+                            <li>method →
+                                <ul>
+                                    <li>GET = URL query string me data bhejta hai</li>
+                                    <li>POST = hidden body me data bhejta hai (secure for login, payments)</li>
+                                </ul>
+                            </li>
+                            <li>Form = user → server communication ka bridge</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </section>
+
+        <!-- Navigation at bottom -->
+        <section>
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td align="center">
+                        <p>
+                            ← <a href="lecture3.html">Previous Lecture</a> |
+                            <a href="index.html">HomePage</a> | 
+                            <a href="lecture5.html">Next Lecture</a> →
+                        </p>
+                        <p>HTML Lectures:
+                            <a href="lecture1.html">1</a> |
+                            <a href="lecture2.html">2</a> |
+                            <a href="lecture3.html">3</a> |
+                            <a href="lecture4.html">4</a> |
+                            <a href="lecture5.html">5</a> |
+                        </p>
+                        <p><a href="#top">Back to top ↑</a></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </main>
-    <hr>
+
+    <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2025 .  Notes compiled for the <b>Defense FullStack</b> webdev course.</p>
-        <p><b>Avinash Singh</b></p>
-        <p>My Twitter/X :- <a href="https://x.com/AvinasTweets" target="_blank">Avinash Singh</a></p>
-        <p><a href="mailto:imavinashsingh2@gmail.com" target="_blank">Mail  Me</a> <br></p>        
-        <p><a href="#top">Back to top ↑</a></p>
+        <table width="100%" cellpadding="10" bgcolor="#f0f0f0">
+            <tr>
+                <td width="40%" valign="top">
+                    <h3>About the Course</h3>
+                    <p>Defense FullStack Web Development Notes</p>
+                    <p>Copyright &copy; 2025</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Author</h3>
+                    <p><b>Avinash Singh</b></p>
+                    <p>Web Developer & Instructor</p>
+                </td>
+                <td width="30%" valign="top">
+                    <h3>Connect</h3>
+                    <p>Twitter/X: <a href="https://x.com/AvinasTweets" target="_blank">@AvinasTweets</a></p>
+                    <p>Email: <a href="mailto="imavinashsingh2@gmail.com">imavinashsingh2@gmail.com</a></p>
+                </td>
+            </tr>
+        </table>
     </footer>
 </body>
 </html>
